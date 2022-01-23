@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 var answer string
+var vitoria int
+var perdeu int
 
 func main() {
 	fmt.Println("Welcome to the game Heads or Tails!")  //bem vindo ao jogo Cara ou Coroa
@@ -22,13 +25,27 @@ func main() {
 	}
 }
 func play() {
-	fmt.Println("Which do you want heads[h] or tails[t]?") //Qual você quer cara ou coroa?
-	switch answer {
-	case "h":
-		play()
-	case "t":
-		play()
-	default:
-		fmt.Println("You mistyped, try again heads[h] or tails[t].") //Digitou errado, tente novamente heads[h] or tails[t].
+	play := true
+	for play {
+		fmt.Println("Which do you want heads[h] or tails[t]?") //Qual você quer cara ou coroa?
+		fmt.Scan(&answer)
+		in := []string{"heads", "tails"}
+		randomIndex := rand.Intn(len(in))
+		result := in[randomIndex]
+		if result == answer {
+			fmt.Println("Você acertou. caiu em ", result)
+			vitoria++
+		} else {
+			fmt.Println("Você errou. caiu em ", result)
+			perdeu++
+		}
+		fmt.Println("Você deseja continuar o jogo?[y] ou [n]")
+		fmt.Scan(&answer)
+		if answer == "n" {
+			play = false
+		}
 	}
+	fmt.Println("Você encerrou o jogo!")
+	fmt.Println("Seu acertos", vitoria)
+	fmt.Println("Seus erros", perdeu)
 }
