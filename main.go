@@ -27,11 +27,12 @@ func main() {
 func play() {
 	play := true
 	for play {
-		fmt.Println("Which do you want heads'h' or tails't'?") //Qual você quer cara ou coroa?
+		fmt.Print("Which do you want heads or tails? [heads/tails] ") //Qual você quer cara ou coroa?
 		fmt.Scan(&answer)
 		in := []string{"heads", "tails"}
-		randomIndex := rand.Intn(len(in))
+		randomIndex := rand.Intn(1)
 		result := in[randomIndex]
+		fmt.Println(result)
 		if result == answer {
 			fmt.Println("You got it right congratulations. It's at", result) //Você acertou parabéns. Está em
 			victory++
@@ -39,7 +40,7 @@ func play() {
 			fmt.Println("You were wrong unfortunately. It's at ", result) //Você errou infelizmente. Está em
 			lost++
 		}
-		fmt.Println("Do you want to continue the game?'y' ou 'n' ") //Você quer continuar o jogo'y' ou 'n'?
+		fmt.Print("Do you want to continue the game?'y' ou 'n' ") //Você quer continuar o jogo'y' ou 'n'?
 		fmt.Scan(&answer)
 		if answer == "n" {
 			play = false
