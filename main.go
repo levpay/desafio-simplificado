@@ -22,13 +22,13 @@ func main() {
 	}
 }
 func play() {
-	fmt.Println("Which do you want heads or tails?") //Qual você quer cara ou coroa?
+	fmt.Println("Which do you want heads[h] or tails[t]?") //Qual você quer cara ou coroa?
 	switch answer {
-	case "cara":
+	case "h":
 		play()
-	case "coroa":
+	case "t":
 		play()
 	default:
-		fmt.Println("You mistyped, try again [heads] or [tails].") //Digitou errado, tente novamente[cara] ou [coroa].
+		fmt.Println("You mistyped, try again heads[h] or tails[t].") //Digitou errado, tente novamente heads[h] or tails[t].
 	}
 }
