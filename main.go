@@ -6,12 +6,12 @@ import (
 )
 
 var answer string
-var vitoria int
-var perdeu int
+var victory int
+var lost int
 
 func main() {
-	fmt.Println("Welcome to the game Heads or Tails!")  //bem vindo ao jogo Cara ou Coroa
-	fmt.Print("would you like to play a game? [y/n]: ") //Você gostaria de jogar uma partida?
+	fmt.Println("Welcome to the game Heads or Tails!")       //bem vindo ao jogo Cara ou Coroa
+	fmt.Print("would you like to play a game? 'y' or 'n': ") //Você gostaria de jogar uma partida 'y' or 'n'?
 
 	fmt.Scan(&answer)
 	//resposta
@@ -19,7 +19,7 @@ func main() {
 	case "y":
 		play()
 	case "n":
-		fmt.Println("Don't worry, if you change your mind, just click on the program again.") //Tranquilo, caso mude de ideia , so clicar no programa novamente
+		fmt.Println("Don't worry, if you change your mind, just click on the program again!.") //Tranquilo, caso mude de ideia , so clicar no programa novamente
 	default:
 		fmt.Println("incorrect option. try running the program again 'y' for yes or 'n' for no.") //opcao incorreta. tente executar o programa novamente  'y' para yes ou 'n' para no.
 	}
@@ -27,25 +27,25 @@ func main() {
 func play() {
 	play := true
 	for play {
-		fmt.Println("Which do you want heads[h] or tails[t]?") //Qual você quer cara ou coroa?
+		fmt.Println("Which do you want heads'h' or tails't'?") //Qual você quer cara ou coroa?
 		fmt.Scan(&answer)
 		in := []string{"heads", "tails"}
 		randomIndex := rand.Intn(len(in))
 		result := in[randomIndex]
 		if result == answer {
-			fmt.Println("Você acertou. caiu em ", result)
-			vitoria++
+			fmt.Println("You got it right congratulations. It's at", result) //Você acertou parabéns. Está em
+			victory++
 		} else {
-			fmt.Println("Você errou. caiu em ", result)
-			perdeu++
+			fmt.Println("You were wrong unfortunately. It's at ", result) //Você errou infelizmente. Está em
+			lost++
 		}
-		fmt.Println("Você deseja continuar o jogo?[y] ou [n]")
+		fmt.Println("Do you want to continue the game?'y' ou 'n' ") //Você quer continuar o jogo'y' ou 'n'?
 		fmt.Scan(&answer)
 		if answer == "n" {
 			play = false
 		}
 	}
-	fmt.Println("Você encerrou o jogo!")
-	fmt.Println("Seu acertos", vitoria)
-	fmt.Println("Seus erros", perdeu)
+	fmt.Println("you ended the game!") //Você encerrou o jogo
+	fmt.Println("your hits", victory)  //Seu acertos
+	fmt.Println("your mistakes", lost) //Seus erros
 }
