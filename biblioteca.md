@@ -1,1 +1,0 @@
-bibliotecas usadas no projeto
