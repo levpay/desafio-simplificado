@@ -1,1 +1,0 @@
-go version go1.17.6 windos/amd64
