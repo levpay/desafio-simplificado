@@ -10,8 +10,8 @@ var victory int
 var lost int
 
 func main() {
-	fmt.Println("Welcome to the game Heads or Tails!")       //bem vindo ao jogo Cara ou Coroa
-	fmt.Print("would you like to play a game? 'y' or 'n': ") //Você gostaria de jogar uma partida 'y' or 'n'?
+	fmt.Println("Welcome to the game Heads or Tails!")  //bem vindo ao jogo Cara ou Coroa
+	fmt.Print("would you like to play a game? [y/n]: ") //Você gostaria de jogar uma partida 'y' or 'n'?
 
 	fmt.Scan(&answer)
 	//resposta
@@ -34,13 +34,13 @@ func play() {
 		result := in[randomIndex]
 		fmt.Println(result)
 		if result == answer {
-			fmt.Println("You got it right congratulations. It's at", result) //Você acertou parabéns. Está em
+			fmt.Println("You got it right congratulations. It's at ", result) //Você acertou parabéns. Está em
 			victory++
 		} else {
 			fmt.Println("You were wrong unfortunately. It's at ", result) //Você errou infelizmente. Está em
 			lost++
 		}
-		fmt.Print("Do you want to continue the game?'y' ou 'n' ") //Você quer continuar o jogo'y' ou 'n'?
+		fmt.Print("Do you want to continue the game?[y/n]") //Você quer continuar o jogo'y' ou 'n'?
 		fmt.Scan(&answer)
 		if answer == "n" {
 			play = false
