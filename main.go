@@ -27,15 +27,18 @@ func main() {
 		return
 	}
 	status, result := jogo(opcao) // Chama a função jogo
-	fmt.Println(status)
-	fmt.Println(result)
+	if status == 1 {
+		fmt.Println("Você ganhou!")
+		fmt.Println("O resultado foi: ", result)
+	} else {
+		fmt.Println("Você perdeu!")
+		fmt.Println("O resultado foi: ", result)
+	}
 }
 func jogo(opcao int) (int, string) { //Retorna o Status do jogo e o resultado
-	rand.Seed(time.Now().UnixNano())                  //Gera um número aleatório
-	options := []string{"cara", "coroa"}              // Opções possíveis
-	result := rand.Intn(2)                            //Gera um número aleatório entre 0 e 1
-	fmt.Println("O resultado foi: ", result)          //Imprime o resultado (Debug)
-	fmt.Println("O resultado foi: ", options[result]) //Imprime o resultado (Debug)
+	rand.Seed(time.Now().UnixNano())     //Gera um número aleatório
+	options := []string{"cara", "coroa"} // Opções possíveis
+	result := rand.Intn(2)               //Gera um número aleatório entre 0 e 1
 
 	if options[result] == options[opcao] {
 		return 1, options[result] //Retorna 1 se o usuário ganhou
