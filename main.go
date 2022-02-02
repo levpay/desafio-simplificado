@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strings"
 )
 
 var answer string
@@ -15,7 +16,7 @@ func main() {
 
 	fmt.Scan(&answer)
 	//resposta
-	switch answer {
+	switch strings.ToLower(answer) {
 	case "y":
 		play()
 	case "n":
@@ -33,7 +34,7 @@ func play() {
 		randomIndex := rand.Intn(1)
 		result := in[randomIndex]
 		fmt.Println(result)
-		if result == answer {
+		if result == strings.ToLower(answer) {
 			fmt.Println("You got it right congratulations. It's at ", result) //Você acertou parabéns. Está em
 			victory++
 		} else {
@@ -42,7 +43,11 @@ func play() {
 		}
 		fmt.Print("Do you want to continue the game?[y/n]") //Você quer continuar o jogo'y' ou 'n'?
 		fmt.Scan(&answer)
-		if answer == "n" {
+		if strings.ToLower(answer) != "n" && strings.ToLower(answer) != "y" {
+			fmt.Println("incorrect option. try running the program again 'y' for yes or 'n' for no.") //opcao incorreta. tente executar o programa novamente  'y' para yes ou 'n' para no.
+			break
+		}
+		if strings.ToLower(answer) == "n" {
 			play = false
 		}
 	}
