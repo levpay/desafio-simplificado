@@ -48,5 +48,5 @@ func play() {
 	}
 	fmt.Println("you ended the game!") //Você encerrou o jogo
 	fmt.Println("your hits", victory)  //Seu acertos
-	fmt.Println("your mistakes", lost) //Seus erros
+	fmt.Println("your losses", lost)   //Seus erros
 }
